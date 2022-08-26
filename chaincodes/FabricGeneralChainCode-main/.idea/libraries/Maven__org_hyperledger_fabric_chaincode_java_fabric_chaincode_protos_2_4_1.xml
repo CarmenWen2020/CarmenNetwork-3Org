@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.hyperledger.fabric-chaincode-java:fabric-chaincode-protos:2.4.1">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hyperledger/fabric-chaincode-java/fabric-chaincode-protos/2.4.1/fabric-chaincode-protos-2.4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hyperledger/fabric-chaincode-java/fabric-chaincode-protos/2.4.1/fabric-chaincode-protos-2.4.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/hyperledger/fabric-chaincode-java/fabric-chaincode-protos/2.4.1/fabric-chaincode-protos-2.4.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

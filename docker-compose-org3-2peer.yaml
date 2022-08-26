@@ -1,0 +1,156 @@
+
+
+
+
+version: '2.0'
+
+services:
+
+    peer0.org3.carmenw.com:
+        #image: hyperledger/fabric-peer:2.4.1
+        image: hyperledger/fabric-peer:latest
+        restart: always
+        container_name: peer0.org3.carmenw.com
+        hostname: peer0.org3.carmenw.com
+        ports:
+            - 11051:7051
+            - 11052:7052
+            - 9447:9443
+        extra_hosts:
+            - "orderer.carmenw.com:172.23.94.28"
+            - "peer0.org1.carmenw.com:172.23.94.28"
+            - "peer1.org1.carmenw.com:172.23.94.28"
+            - "peer0.org2.carmenw.com:172.23.94.28"
+            - "peer1.org2.carmenw.com:172.23.94.28"
+            - "peer0.org3.carmenw.com:172.23.94.28"
+            - "peer1.org3.carmenw.com:172.23.94.28"
+        environment:
+            - FABRIC_LOGGING_SPEC=INFO
+            - FABRIC_LOGGING_FORMAT="%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+            - CORE_PEER_ADDRESSAUTODETECT=false
+            - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=carmennetwork-3org_default  # uncomment this to use specific network
+            - CORE_PEER_GOSSIP_USELEADERELECTION=true
+            - CORE_PEER_GOSSIP_ORGLEADER=false  # whether this node is the org leader, default to false
+            - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9447  # operation RESTful API
+            - CORE_METRICS_PROVIDER=prometheus  # prometheus will pull metrics from fabric via /metrics RESTful API
+            - CORE_PEER_PROFILE_ENABLED=false
+            - CORE_PEER_TLS_ENABLED=true
+            - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+            - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+            - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+            - CORE_CHAINCODE_BUILDER=hyperledger/fabric-ccenv:latest
+            - CORE_CHAINCODE_GOLANG_RUNTIME=hyperledger/fabric-baseos:latest
+            - CORE_CHAINCODE_JAVA_RUNTIME=hyperledger/fabric-javaenv:2.4
+            - CORE_CHAINCODE_NODE_RUNTIME=hyperledger/fabric-nodeenv:2.4
+            - CORE_PEER_ID=peer0.org3.carmenw.com
+            - CORE_PEER_ADDRESS=peer0.org3.carmenw.com:11051
+            - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:11052
+            - CORE_PEER_CHAINCODEADDRESS=peer0.org3.carmenw.com:11052
+            - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer0.org3.carmenw.com:11051
+            - CORE_PEER_GOSSIP_BOOTSTRAP=peer0.org3.carmenw.com:11051
+            - CORE_PEER_LOCALMSPID=Org3MSP
+            - FABRIC_LOGGING_SPEC=DEBUG # info:core.chaincode=debug
+             # # the following setting starts chaincode containers on the same
+            # # bridge network as the peers
+            # # https://docs.docker.com/compose/networking/
+            #- CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=${COMPOSE_PROJECT_NAME}_basic
+            - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=peer0.org3.couchdb:5984
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=jwen758
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=carmenw
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/msp:/etc/hyperledger/fabric/msp
+            - ./crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls:/etc/hyperledger/fabric/tls
+        expose:
+            - "11051"  # gRPC
+            - "11052"
+            - "9447"  # Operation REST
+        #command: bash -c 'bash /tmp/peer_build.sh; peer node start'
+        command: peer node start
+        depends_on:
+            - peer0.org3.couchdb
+            - orderer.carmenw.com
+
+
+    peer1.org3.carmenw.com:
+        #image: hyperledger/fabric-peer:2.4.1
+        image: hyperledger/fabric-peer:latest
+        restart: always
+        container_name: peer1.org3.carmenw.com
+        hostname: peer1.org3.carmenw.com
+        ports:
+            - 12051:7051
+            - 12052:7052
+            - 9448:9443
+        extra_hosts:
+            - "orderer.carmenw.com:172.23.94.28"
+            - "peer0.org1.carmenw.com:172.23.94.28"
+            - "peer1.org1.carmenw.com:172.23.94.28"
+            - "peer0.org2.carmenw.com:172.23.94.28"
+            - "peer1.org2.carmenw.com:172.23.94.28"
+            - "peer0.org3.carmenw.com:172.23.94.28"
+            - "peer1.org3.carmenw.com:172.23.94.28"
+        environment:
+            - FABRIC_LOGGING_SPEC=INFO
+            - FABRIC_LOGGING_FORMAT="%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+            - CORE_PEER_ADDRESSAUTODETECT=false
+            - CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=carmennetwork-3org_default  # uncomment this to use specific network
+            - CORE_PEER_GOSSIP_USELEADERELECTION=true
+            - CORE_PEER_GOSSIP_ORGLEADER=false  # whether this node is the org leader, default to false
+            - CORE_OPERATIONS_LISTENADDRESS=0.0.0.0:9448  # operation RESTful API
+            - CORE_METRICS_PROVIDER=prometheus  # prometheus will pull metrics from fabric via /metrics RESTful API
+            - CORE_PEER_PROFILE_ENABLED=false
+            - CORE_PEER_TLS_ENABLED=true
+            - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/tls/server.crt
+            - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/tls/server.key
+            - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/tls/ca.crt
+            - CORE_CHAINCODE_BUILDER=hyperledger/fabric-ccenv:latest
+            - CORE_CHAINCODE_GOLANG_RUNTIME=hyperledger/fabric-baseos:latest
+            - CORE_CHAINCODE_JAVA_RUNTIME=hyperledger/fabric-javaenv:2.4
+            - CORE_CHAINCODE_NODE_RUNTIME=hyperledger/fabric-nodeenv:2.4
+            - CORE_PEER_ID=peer1.org3.carmenw.com
+            - CORE_PEER_ADDRESS=peer1.org3.carmenw.com:12051
+            - CORE_PEER_CHAINCODELISTENADDRESS=0.0.0.0:12052
+            - CORE_PEER_CHAINCODEADDRESS=peer1.org3.carmenw.com:12052
+            - CORE_PEER_GOSSIP_EXTERNALENDPOINT=peer1.org3.carmenw.com:12051
+            - CORE_PEER_GOSSIP_BOOTSTRAP=peer1.org3.carmenw.com:12051
+            - CORE_PEER_LOCALMSPID=Org3MSP
+            - FABRIC_LOGGING_SPEC=DEBUG # info:core.chaincode=debug
+            - CORE_LEDGER_STATE_STATEDATABASE=CouchDB
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_COUCHDBADDRESS=peer1.org3.couchdb:5984
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_USERNAME=jwen758
+            - CORE_LEDGER_STATE_COUCHDBCONFIG_PASSWORD=carmenw
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - ./crypto-config/peerOrganizations/org3.carmenw.com/peers/peer1.org3.carmenw.com/msp:/etc/hyperledger/fabric/msp
+            - ./crypto-config/peerOrganizations/org3.carmenw.com/peers/peer1.org3.carmenw.com/tls:/etc/hyperledger/fabric/tls
+        expose:
+            - "12051"  # gRPC
+            - "12052"  # chaincode
+            - "9448"  # Operation REST
+        #command: bash -c 'bash /tmp/peer_build.sh; peer node start'
+        command: peer node start
+        depends_on:
+            - peer1.org3.couchdb
+            - orderer.example.com  
+
+    
+                    
+    peer0.org3.couchdb:
+        image: couchdb:3.1.1
+        container_name: peer0.org3.couchdb
+        ports:
+            - 9984:5984  # this is the restful API addr, can also access fauxton web ui thru http://localhost:5984/_utils/
+        environment:
+            - COUCHDB_USER=jwen758
+            - COUCHDB_PASSWORD=carmenw
+
+    peer1.org3.couchdb:
+        image: couchdb:3.1.1
+        container_name: peer1.org3.couchdb
+        ports:
+            - 10984:5984  # this is the restful API addr, can also access fauxton web ui thru http://localhost:5984/_utils/
+        environment:
+            - COUCHDB_USER=jwen758
+            - COUCHDB_PASSWORD=carmenw

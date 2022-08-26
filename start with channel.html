@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>start with channel</title>
+
+
+<style type="text/css">
+body {
+  font-family: Helvetica, arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: white;
+  padding: 30px; }
+
+body > *:first-child {
+  margin-top: 0 !important; }
+body > *:last-child {
+  margin-bottom: 0 !important; }
+
+a {
+  color: #4183C4; }
+a.absent {
+  color: #cc0000; }
+a.anchor {
+  display: block;
+  padding-left: 30px;
+  margin-left: -30px;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+  cursor: text;
+  position: relative; }
+
+h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
+  text-decoration: none; }
+
+h1 tt, h1 code {
+  font-size: inherit; }
+
+h2 tt, h2 code {
+  font-size: inherit; }
+
+h3 tt, h3 code {
+  font-size: inherit; }
+
+h4 tt, h4 code {
+  font-size: inherit; }
+
+h5 tt, h5 code {
+  font-size: inherit; }
+
+h6 tt, h6 code {
+  font-size: inherit; }
+
+h1 {
+  font-size: 28px;
+  color: black; }
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #cccccc;
+  color: black; }
+
+h3 {
+  font-size: 18px; }
+
+h4 {
+  font-size: 16px; }
+
+h5 {
+  font-size: 14px; }
+
+h6 {
+  color: #777777;
+  font-size: 14px; }
+
+p, blockquote, ul, ol, dl, li, table, pre {
+  margin: 15px 0; }
+
+hr {
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
+  border: 0 none;
+  color: #cccccc;
+  height: 4px;
+  padding: 0;
+}
+
+body > h2:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+body > h1:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+  body > h1:first-child + h2 {
+    margin-top: 0;
+    padding-top: 0; }
+body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
+  margin-top: 0;
+  padding-top: 0; }
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0; }
+
+h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+  margin-top: 0; }
+
+li p.first {
+  display: inline-block; }
+li {
+  margin: 0; }
+ul, ol {
+  padding-left: 30px; }
+
+ul :first-child, ol :first-child {
+  margin-top: 0; }
+
+dl {
+  padding: 0; }
+  dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+    dl dt:first-child {
+      padding: 0; }
+    dl dt > :first-child {
+      margin-top: 0; }
+    dl dt > :last-child {
+      margin-bottom: 0; }
+  dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+    dl dd > :first-child {
+      margin-top: 0; }
+    dl dd > :last-child {
+      margin-bottom: 0; }
+
+blockquote {
+  border-left: 4px solid #dddddd;
+  padding: 0 15px;
+  color: #777777; }
+  blockquote > :first-child {
+    margin-top: 0; }
+  blockquote > :last-child {
+    margin-bottom: 0; }
+
+table {
+  padding: 0;border-collapse: collapse; }
+  table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+    table tr:nth-child(2n) {
+      background-color: #f8f8f8; }
+    table tr th {
+      font-weight: bold;
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr td {
+      border: 1px solid #cccccc;
+      margin: 0;
+      padding: 6px 13px; }
+    table tr th :first-child, table tr td :first-child {
+      margin-top: 0; }
+    table tr th :last-child, table tr td :last-child {
+      margin-bottom: 0; }
+
+img {
+  max-width: 100%; }
+
+span.frame {
+  display: block;
+  overflow: hidden; }
+  span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  span.frame span img {
+    display: block;
+    float: left; }
+  span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+span.align-center {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+span.align-right {
+  display: block;
+  overflow: hidden;
+  clear: both; }
+  span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  span.align-right span img {
+    margin: 0;
+    text-align: right; }
+span.float-left {
+  display: block;
+  margin-right: 13px;
+  overflow: hidden;
+  float: left; }
+  span.float-left span {
+    margin: 13px 0 0; }
+span.float-right {
+  display: block;
+  margin-left: 13px;
+  overflow: hidden;
+  float: right; }
+  span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+
+code, tt {
+  margin: 0 2px;
+  padding: 0 5px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px; }
+
+pre code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent; }
+
+.highlight pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #cccccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px; }
+  pre code, pre tt {
+    background-color: transparent;
+    border: none; }
+
+sup {
+    font-size: 0.83em;
+    vertical-align: super;
+    line-height: 0;
+}
+
+kbd {
+  display: inline-block;
+  padding: 3px 5px;
+  font-size: 11px;
+  line-height: 10px;
+  color: #555;
+  vertical-align: middle;
+  background-color: #fcfcfc;
+  border: solid 1px #ccc;
+  border-bottom-color: #bbb;
+  border-radius: 3px;
+  box-shadow: inset 0 -1px 0 #bbb
+}
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+@media screen and (min-width: 914px) {
+    body {
+        width: 854px;
+        margin:0 auto;
+    }
+}
+@media print {
+	table, pre {
+		page-break-inside: avoid;
+	}
+	pre {
+		word-wrap: break-word;
+	}
+  body {
+    padding: 2cm; 
+  }
+}
+</style>
+
+
+</head>
+
+<body>
+
+<h1 id="toc_0">requirment</h1>
+
+<p>I am running in Apple M1 Pro, everything in localhost.</p>
+
+<p>Before we start with build up our Channel, we need Docker and some corresponding images install.</p>
+
+<ul>
+<li>install Docker Desktop</li>
+<li>install images (from hyperledger fabric offical website)</li>
+</ul>
+
+<div><pre><code class="language-none">curl -sSL https://bit.ly/2ysbOFE | bash -s</code></pre></div>
+
+<ul>
+<li>Two extra images</li>
+</ul>
+
+<div><pre><code class="language-none">docker pull --platform linux/amd64 hyperledger/fabric-javaenv:2.4
+docker pull --platform linux/amd64 hyperledger/fabric-nodeenv:2.4</code></pre></div>
+
+<p>(If you running in different envirment like WINDOWS system, you may have different images version such as <em>fabric-javaenv:2.4.1</em> is valid in window, and also you need to edit the envirment to corresponding yaml file)</p>
+
+<ul>
+<li>extra port number edit in local document </li>
+</ul>
+
+<div><pre><code class="language-none">nano /etc/hosts</code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/portnum.png" alt=""></p>
+
+<p>(My IP address is 172.23.81.8, If you are under different wifi, you need to change to your IP address, and also you need to change this address to the corresponding yaml file)</p>
+
+<p>That&#39;s all images we have now:</p>
+
+<div><pre><code class="language-none">docker image ls</code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/images.png" alt=""></p>
+
+<h1 id="toc_1">shortcut</h1>
+
+<p>shut down yaml document</p>
+
+<div><pre><code class="language-none">docker-compose -f docker-compose-orderer-3org.yaml down -v
+docker-compose -f docker-compose-org1-2peer.yaml down -v
+docker-compose -f docker-compose-org2-2peer.yaml down -v
+docker-compose -f docker-compose-org3-2peer.yaml down -v</code></pre></div>
+
+<h1 id="toc_2">Generated identity certificates</h1>
+
+<h2 id="toc_3">Generate an organizational identity file</h2>
+
+<ul>
+<li>Goes to <em>bin</em> directory<br></li>
+</ul>
+
+<div><pre><code class="language-none">cd bin</code></pre></div>
+
+<ul>
+<li>Generate an organizational identity file from the <em>crypto-config.yaml</em> configuration file and save it under ../crypto-config directory</li>
+</ul>
+
+<div><pre><code class="language-none">./cryptogen generate --config=../crypto-config.yaml --output ../crypto-config</code></pre></div>
+
+<ul>
+<li>Generate genesis block</li>
+</ul>
+
+<div><pre><code class="language-none">./configtxgen -configPath ../config  -profile ThreeOrgsOrdererGenesis -channelID fabric-channel -outputBlock ../channel-artifacts/orderer.genesis.block</code></pre></div>
+
+<ul>
+<li>Generate channel file</li>
+</ul>
+
+<div><pre><code class="language-none">./configtxgen -configPath ../config  -profile ThreeOrgsChannel -channelID carmenchannel-3org -outputCreateChannelTx ../channel-artifacts/carmenchannel-3org.tx</code></pre></div>
+
+<ul>
+<li>Generate three anchor peers configuration updated file</li>
+</ul>
+
+<div><pre><code class="language-none">./configtxgen -configPath ../config  -profile ThreeOrgsChannel -channelID carmenchannel-3org -asOrg Org1MSP -outputAnchorPeersUpdate ../channel-artifacts/Org1MSPanchors.tx
+./configtxgen -configPath ../config  -profile ThreeOrgsChannel -channelID carmenchannel-3org -asOrg Org2MSP -outputAnchorPeersUpdate ../channel-artifacts/Org2MSPanchors.tx
+./configtxgen -configPath ../config  -profile ThreeOrgsChannel -channelID carmenchannel-3org -asOrg Org3MSP -outputAnchorPeersUpdate ../channel-artifacts/Org3MSPanchors.tx`</code></pre></div>
+
+<ul>
+<li>Go back one level up directory</li>
+</ul>
+
+<div><pre><code class="language-none">cd ..</code></pre></div>
+
+<ul>
+<li>now you can see the file under channel-artifacts directory by enter <em>tree channel-artifacts</em></li>
+</ul>
+
+<div><pre><code class="language-none">channel-artifacts
+├── Org1MSPanchors.tx
+├── Org2MSPanchors.tx
+├── Org3MSPanchors.tx
+├── carmenchannel-3org.tx
+└── orderer.genesis.block</code></pre></div>
+
+<h1 id="toc_4">Start the channel</h1>
+
+<h2 id="toc_5">Created Channel</h2>
+
+<ul>
+<li>now create the channel using four yaml file:<br>
+docker-compose-orderer-3org.yaml, docker-compose-org1-2peer.yaml, docker-compose-org2-2peer.yaml &amp; docker-compose-org3-2peer.yaml 
+<img src="/Users/carmenw/Desktop/screenshot/22.png" alt=""><br></li>
+</ul>
+
+<div><pre><code class="language-none">docker-compose -f docker-compose-orderer-3org.yaml up -d
+docker-compose -f docker-compose-org1-2peer.yaml up -d
+docker-compose -f docker-compose-org2-2peer.yaml up -d
+docker-compose -f docker-compose-org3-2peer.yaml up -d</code></pre></div>
+
+<ul>
+<li>container in docker is sucessfully created
+<img src="/Users/carmenw/Desktop/screenshot/23.png" alt=""></li>
+</ul>
+
+<h2 id="toc_6">Goes to <strong>fabric-cli</strong> container</h2>
+
+<p>( to exit the container by enter <em>exit</em>)</p>
+
+<div><pre><code class="language-none">docker exec -it fabric-cli bash</code></pre></div>
+
+<p>Entry channel-artifacts direction and generated <em>carmenchannel-3org.block</em></p>
+
+<div><pre><code class="language-none">cd /tmp/channel-artifacts/
+
+export APP_CHANNEL=carmenchannel-3org
+export TIMEOUT=30
+export CORE_PEER_LOCALMSPID=Org1MSP
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+
+peer channel create -o orderer.carmenw.com:7050 -c ${APP_CHANNEL} -f &quot;/tmp/channel-artifacts/$APP_CHANNEL.tx&quot; --timeout &quot;${TIMEOUT}s&quot; --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem
+</code></pre></div>
+
+<p>the output should be looks like</p>
+
+<div><pre><code class="language-none">[040 06-01 03:38:17.71 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[041 06-01 03:38:17.92 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AF6060A1E08051A0608A9BEDB940622...3502A7FD89C012080A021A0012021A00 
+[042 06-01 03:38:17.92 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: EF3EE6B67BF6D9EF014296630E39515586DAF3D833D9FA26F9B2A0A4B92245FB 
+[043 06-01 03:38:17.96 UTC] [cli.common] readBlock -&gt; INFO Received block: 0</code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/24.png" alt=""></p>
+
+<h2 id="toc_7">Joined Channel</h2>
+
+<p>This exection also under <strong>fabric-cli</strong> container</p>
+
+<p><strong>org1-peer0 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org1.carmenw.com:7051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block export CORE_PEER_TLS_ENABLED=true</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[020 06-01 03:42:07.18 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<p><strong>org1-peer1 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer1.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org1.carmenw.com:8051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[01d 06-01 03:50:55.17 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[01e 06-01 03:50:55.18 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AB3070A5B08011A0B089FC4DB940610...D52FCFD31A0A0A000A000A000A000A00 
+[01f 06-01 03:50:55.18 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: 157CC9F6A8B527166E2165891A4E15FB12AEDEA78F61122ACF0A2AFDC2B37A0A 
+[020 06-01 03:50:55.57 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<p><strong>org2-peer0 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org2.carmenw.com:9051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[01d 06-01 03:52:00.34 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[01e 06-01 03:52:00.35 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AB4070A5C08011A0C08E0C4DB940610...D52FCFD31A0A0A000A000A000A000A00 
+[01f 06-01 03:52:00.35 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: 4227F105069B7D498982E2C7C4E31E47B829FE5179640C6358CC8A07E5B9363A 
+[020 06-01 03:52:00.79 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<p><strong>org2-peer1 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer1.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org2.carmenw.com:10051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[01d 06-01 03:52:36.81 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[01e 06-01 03:52:36.82 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AB4070A5C08011A0C0884C5DB940610...D52FCFD31A0A0A000A000A000A000A00 
+[01f 06-01 03:52:36.82 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: 8180AB8D0D53D783A96FA31F9FBF24432F9A014E15EB61FE757F83624DD5A08F 
+[020 06-01 03:52:37.22 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<p><strong>org3-peer0 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org3.carmenw.com:11051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[01d 06-01 03:53:03.04 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[01e 06-01 03:53:03.05 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AB3070A5B08011A0B089FC5DB940610...D52FCFD31A0A0A000A000A000A000A00 
+[01f 06-01 03:53:03.05 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: 8AD819555478DA9D177A70A56718F33BCFEE2C0F3B24B8D936C56BE1012EEF37 
+[020 06-01 03:53:03.45 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<p><strong>org3-peer1 joined to channel</strong>  </p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer1.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org3.carmenw.com:12051
+peer channel join -b /tmp/channel-artifacts/carmenchannel-3org.block</code></pre></div>
+
+<p>output should be looks like </p>
+
+<div><pre><code class="language-none">[01d 06-01 03:54:13.31 UTC] [channelCmd] InitCmdFactory -&gt; INFO Endorser and orderer connections initialized
+[01e 06-01 03:54:13.32 UTC] [msp.identity] Sign -&gt; DEBU Sign: plaintext: 0AB4070A5C08011A0C08E5C5DB940610...D52FCFD31A0A0A000A000A000A000A00 
+[01f 06-01 03:54:13.32 UTC] [msp.identity] Sign -&gt; DEBU Sign: digest: 70075520C46F68EFCA75D986A5DBEE58DB5AE06B6BF43693CB82ACF00EFB2945 
+[020 06-01 03:54:13.72 UTC] [channelCmd] executeJoin -&gt; INFO Successfully submitted proposal to join channel</code></pre></div>
+
+<h2 id="toc_8">Updated Anchor peers</h2>
+
+<p><strong>Org1 Updated anchor peer</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org1.carmenw.com:7051
+peer channel update -o orderer.carmenw.com:7050 -c carmenchannel-3org -f /tmp/channel-artifacts/Org1MSPanchors.tx --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[022 06-01 03:55:51.88 UTC] [channelCmd] update -&gt; INFO Successfully submitted channel update</code></pre></div>
+
+<p><strong>Org2 Updated anchor peer</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org2.carmenw.com:9051
+peer channel update -o orderer.carmenw.com:7050 -c carmenchannel-3org -f /tmp/channel-artifacts/Org2MSPanchors.tx --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[022 06-01 03:56:50.34 UTC] [channelCmd] update -&gt; INFO Successfully submitted channel update</code></pre></div>
+
+<p><strong>Org3 Updated anchor peer</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org3.carmenw.com:11051
+peer channel update -o orderer.carmenw.com:7050 -c carmenchannel-3org -f /tmp/channel-artifacts/Org3MSPanchors.tx --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[022 06-01 03:57:24.27 UTC] [channelCmd] update -&gt; INFO Successfully submitted channel update</code></pre></div>
+
+<h2 id="toc_9">Install Chaincode</h2>
+
+<p>This exection also under fabric-cli container </p>
+
+<p><strong>Go to chaincode directory and packed the contract</strong> </p>
+
+<div><pre><code class="language-none">cd /etc/hyperledger/fabric/chaincodes/
+
+peer lifecycle chaincode package java_demo.tar.gz --path /etc/hyperledger/fabric/chaincodes/FabricGeneralChainCode/ --lang java --label java_demo01</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[007 06-01 04:04:10.79 UTC] [chaincode.platform.util] WriteFileToPackage -&gt; DEBU Writing file to tarball: src/.DS_Store
+[008 06-01 04:04:10.80 UTC] [chaincode.platform.util] WriteFileToPackage -&gt; DEBU Writing file to tarball: src/chaincode.jar</code></pre></div>
+
+<h3 id="toc_10">Install chaincode in different peers</h3>
+
+<p><strong>Org1-peer0 install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org1.carmenw.com:7051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:05:44.66 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:05:44.66 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Org1-peer1  install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer1.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org1.carmenw.com:8051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:07:32.69 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:07:32.69 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Org2-peer0  install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org2.carmenw.com:9051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:08:48.34 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:08:48.34 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Org2-peer1  install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer1.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org2.carmenw.com:10051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:10:47.66 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:10:47.66 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Org3-peer0  install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org3.carmenw.com:11051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:12:09.23 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:12:09.23 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Org3-peer1  install chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer1.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer1.org3.carmenw.com:12051
+peer lifecycle chaincode install java_demo.tar.gz</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[020 06-01 04:13:18.90 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Installed remotely: response:&lt;status:200 payload:&quot;\nLjava_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af\022\013java_demo01&quot; &gt; 
+[021 06-01 04:13:18.90 UTC] [cli.lifecycle.chaincode] submitInstallProposal -&gt; INFO Chaincode code package identifier: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<p><strong>Query package ID:</strong><br>
+Same package ID for every peer</p>
+
+<div><pre><code class="language-none">peer lifecycle chaincode queryinstalled
+</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">Installed chaincodes on peer:
+Package ID: java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af, Label: java_demo01</code></pre></div>
+
+<p><strong>Save this PACKAGE ID as environment variable</strong></p>
+
+<div><pre><code class="language-none">export CC_PACKAGE_ID=java_demo01:4786c83248869e90e137a60e2ba44822773b1c07624c46f35c067dae9c8204af</code></pre></div>
+
+<h2 id="toc_11">Approved the defined chaincode</h2>
+
+<p><strong>Org1 approved chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org1MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org1.carmenw.com:7051
+peer lifecycle chaincode approveformyorg -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --channelID carmenchannel-3org --name PaperSystem  --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[025 06-01 04:19:12.22 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [621b20ecaefe1f624795ce653489b240da5ef9f94a65f40976fb88ce4aede6a1] committed with status (VALID) at peer0.org1.carmenw.com:7051</code></pre></div>
+
+<p><strong>Org2 approved chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org2MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org2.carmenw.com:9051
+peer lifecycle chaincode approveformyorg -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --channelID carmenchannel-3org --name PaperSystem  --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[025 06-01 04:20:49.85 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [be31965b3472e5f6320f1dbc710d9f15495586979024ed9063dd606307bfff5e] committed with status (VALID) at peer0.org2.carmenw.com:9051</code></pre></div>
+
+<p><strong>Org3 approved chaincode</strong></p>
+
+<div><pre><code class="language-none">export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_LOCALMSPID=&quot;Org3MSP&quot;
+export CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp
+export CORE_PEER_ADDRESS=peer0.org3.carmenw.com:11051
+peer lifecycle chaincode approveformyorg -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --channelID carmenchannel-3org --name PaperSystem  --version 1.0 --package-id $CC_PACKAGE_ID --sequence 1 --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[025 06-01 04:21:16.99 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [31abf70863cbe383be6225e977b310da500b2f550056ce7abf4987c7c53f7b40] committed with status (VALID) at peer0.org3.carmenw.com:11051</code></pre></div>
+
+<p><strong>Check whether all channel members have approved the same chaincode:</strong></p>
+
+<div><pre><code class="language-none">peer lifecycle chaincode checkcommitreadiness --channelID carmenchannel-3org --name PaperSystem --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem --output json</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">{
+    &quot;approvals&quot;: {
+        &quot;Org1MSP&quot;: true,
+        &quot;Org2MSP&quot;: true,
+        &quot;Org3MSP&quot;: true
+    }
+}</code></pre></div>
+
+<p><strong>Summit Chaincode to Channel</strong></p>
+
+<div><pre><code class="language-none">peer lifecycle chaincode commit -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --channelID carmenchannel-3org --name PaperSystem --version 1.0 --sequence 1 --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[02d 06-01 04:24:49.34 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [3e02f1df6f637a2444535f970c0554cba06ac112d672230fc7c6b03d71b173c9] committed with status (VALID) at peer0.org3.carmenw.com:11051
+[02e 06-01 04:24:50.63 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [3e02f1df6f637a2444535f970c0554cba06ac112d672230fc7c6b03d71b173c9] committed with status (VALID) at peer0.org2.carmenw.com:9051
+[02f 06-01 04:24:52.11 UTC] [chaincodeCmd] ClientWait -&gt; INFO txid [3e02f1df6f637a2444535f970c0554cba06ac112d672230fc7c6b03d71b173c9] committed with status (VALID) at peer0.org1.carmenw.com:7051</code></pre></div>
+
+<p><strong>Check Whether Chaincode Already summit to Channel</strong></p>
+
+<div><pre><code class="language-none">peer lifecycle chaincode querycommitted --channelID carmenchannel-3org --name PaperSystem --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">Committed chaincode definition for chaincode &#39;PaperSystem&#39; on channel &#39;carmenchannel-3org&#39;:
+Version: 1.0, Sequence: 1, Endorsement Plugin: escc, Validation Plugin: vscc, Approvals: [Org1MSP: true, Org2MSP: true, Org3MSP: true]</code></pre></div>
+
+<h2 id="toc_12">Invoke function</h2>
+
+<p>now we can invoke function which defined in our contract</p>
+
+<p>You can login CouchDB to see the stored data        </p>
+
+<ul>
+<li>Go to http://localhost:5984/_utils<br></li>
+<li>username: jwen758<br></li>
+<li>password: carmenw<br></li>
+</ul>
+
+<p><strong>Created data</strong></p>
+
+<div><pre><code class="language-none">peer chaincode invoke -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem -C carmenchannel-3org -n PaperSystem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt -c &#39;{&quot;function&quot;:&quot;createData&quot;,&quot;Args&quot;:[&quot;test00&quot;,&quot;{\&quot;ai\&quot;:true,\&quot;arch\&quot;:true,\&quot;dm\&quot;:true,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:false,\&quot;theo\&quot;:false,\&quot;vr\&quot;:false,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot;]}&#39;</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[028 06-01 04:31:02.41 UTC] [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;ai\&quot;:true,\&quot;arch\&quot;:true,\&quot;dm\&quot;:true,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:false,\&quot;theo\&quot;:false,\&quot;vr\&quot;:false,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot;</code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/25.png" alt=""></p>
+
+<p><strong>Update Data</strong></p>
+
+<div><pre><code class="language-none">peer chaincode invoke -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem -C carmenchannel-3org -n PaperSystem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt -c &#39;{&quot;function&quot;:&quot;updateData&quot;,&quot;Args&quot;:[&quot;test00&quot;,&quot;{\&quot;ai\&quot;:false,\&quot;arch\&quot;:false,\&quot;dm\&quot;:false,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:true,\&quot;theo\&quot;:true,\&quot;vr\&quot;:true,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot;]}&#39;</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[028 06-01 04:35:16.62 UTC] [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;ai\&quot;:false,\&quot;arch\&quot;:false,\&quot;dm\&quot;:false,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:true,\&quot;theo\&quot;:true,\&quot;vr\&quot;:true,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot; </code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/26.png" alt=""></p>
+
+<p><strong>Query Data</strong></p>
+
+<div><pre><code class="language-none">peer chaincode invoke -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem -C carmenchannel-3org -n PaperSystem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt -c &#39;{&quot;function&quot;:&quot;queryData&quot;,&quot;Args&quot;:[&quot;test00&quot;]}&#39;</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[028 06-01 04:37:45.44 UTC] [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;ai\&quot;:false,\&quot;arch\&quot;:false,\&quot;dm\&quot;:false,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:true,\&quot;theo\&quot;:true,\&quot;vr\&quot;:true,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot; </code></pre></div>
+
+<p><strong>Rich Query</strong></p>
+
+<div><pre><code class="language-none">peer chaincode invoke -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem -C carmenchannel-3org -n PaperSystem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt -c &#39;{&quot;function&quot;:&quot;richQuery&quot;,&quot;Args&quot;:[&quot;{\&quot;selector\&quot;:{\&quot;vr\&quot;:true,\&quot;ReviewState\&quot;:true}, \&quot;use_index\&quot;:[]}&quot;]}&#39;</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[028 06-01 05:16:39.80 UTC] [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;resultList\&quot;:[{\&quot;json\&quot;:\&quot;{\\\&quot;Credit\\\&quot;:1,\\\&quot;PaperID\\\&quot;:\\\&quot;none\\\&quot;,\\\&quot;ReviewState\\\&quot;:true,\\\&quot;ai\\\&quot;:false,\\\&quot;arch\\\&quot;:false,\\\&quot;dm\\\&quot;:false,\\\&quot;edu\\\&quot;:false,\\\&quot;inter\\\&quot;:false,\\\&quot;net\\\&quot;:false,\\\&quot;par\\\&quot;:false,\\\&quot;secu\\\&quot;:false,\\\&quot;ssy\\\&quot;:true,\\\&quot;theo\\\&quot;:true,\\\&quot;vr\\\&quot;:true}\&quot;,\&quot;key\&quot;:\&quot;test00\&quot;}]}&quot; </code></pre></div>
+
+<p><strong>Delete Data</strong></p>
+
+<div><pre><code class="language-none">peer chaincode invoke -o orderer.carmenw.com:7050 --ordererTLSHostnameOverride orderer.carmenw.com --tls --cafile /etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem -C carmenchannel-3org -n PaperSystem --peerAddresses peer0.org1.carmenw.com:7051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt --peerAddresses peer0.org2.carmenw.com:9051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt --peerAddresses peer0.org3.carmenw.com:11051 --tlsRootCertFiles /etc/hyperledger/fabric/crypto-config/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt -c &#39;{&quot;function&quot;:&quot;deleteData&quot;,&quot;Args&quot;:[&quot;test00&quot;]}&#39;</code></pre></div>
+
+<p>Output:</p>
+
+<div><pre><code class="language-none">[028 06-01 05:30:11.50 UTC] [chaincodeCmd] chaincodeInvokeOrQuery -&gt; INFO Chaincode invoke successful. result: status:200 payload:&quot;{\&quot;ai\&quot;:false,\&quot;arch\&quot;:false,\&quot;dm\&quot;:false,\&quot;edu\&quot;:false,\&quot;inter\&quot;:false,\&quot;net\&quot;:false,\&quot;par\&quot;:false,\&quot;secu\&quot;:false,\&quot;ssy\&quot;:true,\&quot;theo\&quot;:true,\&quot;vr\&quot;:true,\&quot;ReviewState\&quot;:true,\&quot;PaperID\&quot;:\&quot;none\&quot;,\&quot;Credit\&quot;:1}&quot;</code></pre></div>
+
+<h2 id="toc_13">Show Block &amp; transcation On Hyperledger Explorer</h2>
+
+<p>Open another terminal page &amp; the same directory under <em>CarmenNetwork-3Org</em></p>
+
+<ul>
+<li>Entry <em>explorer</em> folder and start the yaml document</li>
+</ul>
+
+<div><pre><code class="language-none">cd explorer
+
+docker-compose -f docker-compose.yaml up -d</code></pre></div>
+
+<p><img src="/Users/carmenw/Desktop/screenshot/27.png" alt=""></p>
+
+<ul>
+<li><p>Sucecessful created under docker 
+<img src="/Users/carmenw/Desktop/screenshot/28.png" alt=""></p></li>
+<li><p>Open the browser and enter http://localhost:9090/<br>
+and  enter<br>
+username: jwen758<br>
+password: carmenw
+<img src="/Users/carmenw/Desktop/screenshot/29.png" alt=""></p></li>
+<li><p>Now we can see there are 6 peers were defined, including three Organisation and each Organisation has two peers.<br>
+&amp; One Chaincode has been installed
+<img src="/Users/carmenw/Desktop/screenshot/30.png" alt=""></p></li>
+</ul>
+
+<h1 id="toc_14">Shut down channel &amp; testing network</h1>
+
+<p>the data only store if and only if the testing network is on.</p>
+
+<ul>
+<li>shut down yaml documents for channel under CarmenNetwork-3Org</li>
+</ul>
+
+<div><pre><code class="language-none">docker-compose -f docker-compose-orderer-3org.yaml down -v
+docker-compose -f docker-compose-org1-2peer.yaml down -v
+docker-compose -f docker-compose-org2-2peer.yaml down -v
+docker-compose -f docker-compose-org3-2peer.yaml down -v</code></pre></div>
+
+<ul>
+<li>shut down yaml document for hyperledeger explorer under explorer</li>
+</ul>
+
+<div><pre><code class="language-none">docker-compose -f docker-compose.yaml down -v</code></pre></div>
+
+
+
+
+</body>
+
+</html>

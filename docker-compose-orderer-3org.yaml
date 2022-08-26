@@ -1,0 +1,102 @@
+
+
+version: '2.0'
+
+services:
+
+    cli:
+        #image: hyperledger/fabric-tools:2.4.1
+        image: hyperledger/fabric-tools:latest
+        # platform: linux/amd64
+        restart: always
+        container_name: fabric-cli
+        hostname: fabric-cli
+        tty: true
+        extra_hosts:
+            - "orderer.carmenw.com:172.23.94.28"
+            - "peer0.org1.carmenw.com:172.23.94.28"
+            - "peer1.org1.carmenw.com:172.23.94.28"
+            - "peer0.org2.carmenw.com:172.23.94.28"
+            - "peer1.org2.carmenw.com:172.23.94.28"
+            - "peer0.org3.carmenw.com:172.23.94.28"
+            - "peer1.org3.carmenw.com:172.23.94.28"
+            # - "peer0.org4.carmenw.com:172.23.81.8"
+            # - "peer1.org4.carmenw.com:172.23.81.8"
+            # - "peer0.org5.carmenw.com:172.23.81.8"
+            # - "peer1.org5.carmenw.com:172.23.81.8"
+
+        environment:
+            - CORE_PEER_ID=fabric-cli
+            - CORE_PEER_ADDRESS=peer0.org1.carmenw.com:7051 # default to operate on peer0.org1
+            - CORE_PEER_LOCALMSPID=Org1MSP
+            - CORE_PEER_TLS_CERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/server.crt
+            - CORE_PEER_TLS_KEY_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/server.key
+            - CORE_PEER_TLS_ROOTCERT_FILE=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt
+            - CORE_PEER_MSPCONFIGPATH=/etc/hyperledger/fabric/crypto-config/peerOrganizations/org1.carmenw.com/users/Admin@org1.carmenw.com/msp
+            - FABRIC_LOGGING_SPEC=DEBUG
+            - FABRIC_LOGGING_FORMAT=%{color}[%{id:03x} %{time:01-02 15:04:05.00 MST}] [%{module}] %{shortfunc} -> %{level:.4s}%{color:reset} %{message}
+            - CORE_PEER_TLS_ENABLED=true  # to enable TLS, change to true
+            - ORDERER_CA=/etc/hyperledger/fabric/crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp/tlscacerts/tlsca.carmenw.com-cert.pem
+        volumes:
+            - ./config/crypto-config.yaml:/etc/hyperledger/fabric/crypto-config.yaml
+            - ./config/configtx.yaml:/etc/hyperledger/fabric/configtx.yaml
+            - ./crypto-config:/etc/hyperledger/fabric/crypto-config
+            - ./channel-artifacts:/tmp/channel-artifacts
+            - ./chaincodes:/etc/hyperledger/fabric/chaincodes
+        working_dir: /opt/gopath/src/github.com/hyperledger/fabric/peer
+        command: bash -c 'cd /tmp; source scripts/func.sh; while true; do sleep 20170504; done'
+
+
+    orderer.carmenw.com:  # There can be multiple orderers
+        #image: hyperledger/fabric-orderer:2.4.1
+        image: hyperledger/fabric-orderer:latest
+        restart: always
+        container_name: orderer.carmenw.com
+        hostname: orderer.carmenw.com
+        ports:
+            - 7050:7050
+            - 8443:8443
+        extra_hosts:
+            - "orderer.carmenw.com:172.23.94.28"
+            - "peer0.org1.carmenw.com:172.23.94.28"
+            - "peer1.org1.carmenw.com:172.23.94.28"
+            - "peer0.org2.carmenw.com:172.23.94.28"
+            - "peer1.org2.carmenw.com:172.23.94.28"
+            - "peer0.org3.carmenw.com:172.23.94.28"
+            - "peer1.org3.carmenw.com:172.23.94.28"
+            # - "peer0.org4.carmenw.com:172.23.81.8"
+            # - "peer1.org4.carmenw.com:172.23.81.8"
+            # - "peer0.org5.carmenw.com:172.23.81.8"
+            # - "peer1.org5.carmenw.com:172.23.81.8"
+            
+        environment:
+            - FABRIC_LOGGING_FORMAT="%{color}%{time:2006-01-02 15:04:05.000 MST} [%{module}] %{shortfunc} -> %{level:.4s} %{id:03x}%{color:reset} %{message}"
+            - ORDERER_GENERAL_LISTENADDRESS=0.0.0.0 # default: 127.0.0.1
+            - ORDERER_GENERAL_LISTENPORT=7050
+            - ORDERER_GENERAL_GENESISMETHOD=file # default: provisional
+            - ORDERER_GENERAL_BOOTSTRAPFILE=/etc/hyperledger/fabric/orderer.genesis.block # by default, all materials should be put under $FABRIC_CFG_PATH, which defaults to /etc/hyperledger/fabric
+            - ORDERER_GENERAL_LOCALMSPID=OrdererMSP # default: DEFAULT
+            - ORDERER_GENERAL_LOCALMSPDIR=/etc/hyperledger/fabric/msp
+            - ORDERER_GENERAL_LEDGERTYPE=file
+            #- ORDERER_GENERAL_LEDGERTYPE=json  # default: file
+            - ORDERER_OPERATIONS_LISTENADDRESS=0.0.0.0:8443  # operation RESTful API
+            - ORDERER_METRICS_PROVIDER=prometheus  # prometheus will pull metrics from orderer via /metrics RESTful API
+            #- ORDERER_RAMLEDGER_HISTORY_SIZE=100  #only useful when use ram ledger
+            # enabled TLS
+            - ORDERER_GENERAL_TLS_ENABLED=true # default: false
+            - ORDERER_GENERAL_TLS_PRIVATEKEY=/etc/hyperledger/fabric/tls/server.key
+            - ORDERER_GENERAL_TLS_CERTIFICATE=/etc/hyperledger/fabric/tls/server.crt
+            - ORDERER_GENERAL_TLS_ROOTCAS=[/etc/hyperledger/fabric/tls/ca.crt]
+            # Only required by raft mode
+            - ORDERER_GENERAL_CLUSTER_CLIENTPRIVATEKEY=/etc/hyperledger/fabric/tls/server.key
+            - ORDERER_GENERAL_CLUSTER_CLIENTCERTIFICATE=/etc/hyperledger/fabric/tls/server.crt
+            - ORDERER_GENERAL_CLUSTER_ROOTCAS=[/etc/hyperledger/fabric/tls/ca.crt]
+            - FABRIC_LOGGING_SPEC=DEBUG
+        volumes:
+            - ./crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/msp:/etc/hyperledger/fabric/msp
+            - ./crypto-config/ordererOrganizations/carmenw.com/orderers/orderer.carmenw.com/tls/:/etc/hyperledger/fabric/tls
+            - ./channel-artifacts/orderer.genesis.block:/etc/hyperledger/fabric/orderer.genesis.block
+        expose:
+            - "7050"  # gRPC
+            - "8443"  # Operation REST
+        command: orderer start

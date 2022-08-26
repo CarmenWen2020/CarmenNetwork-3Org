@@ -1,0 +1,142 @@
+{
+	"name": "test-network",
+	"version": "1.0.0",
+	"client": {
+		"tlsEnable": true,
+		"adminCredential": {
+			"id": "jwen758",
+			"password": "carmenw"
+		},
+		"enableAuthentication": true,
+		"organization": "Org1MSP",
+		"connection": {
+			"timeout": {
+				"peer": {
+					"endorser": "300"
+				},
+				"orderer": "300"
+			}
+		}
+	},
+	"channels": {
+		"carmenchannel-3org": {
+			"peers": {
+				"peer0.org1.carmenw.com": {},
+				"peer1.org1.carmenw.com": {},
+				"peer0.org2.carmenw.com": {},
+				"peer1.org2.carmenw.com": {},
+				"peer0.org3.carmenw.com": {},
+				"peer1.org3.carmenw.com": {}
+			}
+		}
+	},
+	"organizations": {
+		"Org1MSP": {
+			"mspid": "Org1MSP",
+			"peers":[
+				"peer0.org1.carmenw.com",
+				"peer1.org1.carmenw.com"
+			],
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/org1.carmenw.com/users/User1@org1.carmenw.com/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/org1.carmenw.com/users/User1@org1.carmenw.com/msp/signcerts/User1@org1.carmenw.com-cert.pem"
+			}
+		},
+		"Org2MSP": {
+			"mspid": "Org2MSP",
+			"peers":[
+				"peer0.org2.carmenw.com",
+				"peer1.org2.carmenw.com"
+			],
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/org2.carmenw.com/users/Admin@org2.carmenw.com/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/org2.carmenw.com/users/User1@org2.carmenw.com/msp/signcerts/User1@org2.carmenw.com-cert.pem"
+			}
+		},
+		"Org3MSP": {
+			"mspid": "Org3MSP",
+			"peers":[
+				"peer0.org3.carmenw.com",
+				"peer1.org3.carmenw.com"
+			],
+			"adminPrivateKey": {
+				"path": "/tmp/crypto/peerOrganizations/org3.carmenw.com/users/Admin@org3.carmenw.com/msp/keystore/priv_sk"
+			},
+			"signedCert": {
+				"path": "/tmp/crypto/peerOrganizations/org3.carmenw.com/users/User1@org3.carmenw.com/msp/signcerts/User1@org3.carmenw.com-cert.pem"
+			}
+		}
+	},
+	"peers": {
+		"peer0.org1.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org1.carmenw.com/peers/peer0.org1.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.org1.carmenw.com:7051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer0.org1.carmenw.com",
+				"hostnameOverride":"peer0.org1.carmenw.com",
+				"request-timeout":120001
+			}
+		},
+		"peer1.org1.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org1.carmenw.com/peers/peer1.org1.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.org1.carmenw.com:8051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer1.org1.carmenw.com",
+				"hostnameOverride":"peer1.org1.carmenw.com",
+				"request-timeout":120001
+			}
+		},
+		"peer0.org2.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org2.carmenw.com/peers/peer0.org2.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.org2.carmenw.com:9051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer0.org2.carmenw.com",
+				"hostnameOverride":"peer0.org2.carmenw.com",
+				"request-timeout":120001
+			}
+		},
+		"peer1.org2.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org2.carmenw.com/peers/peer1.org2.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.org2.carmenw.com:10051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer1.org2.carmenw.com",
+				"hostnameOverride":"peer1.org2.carmenw.com",
+				"request-timeout":120001
+			}
+		},
+		"peer0.org3.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org3.carmenw.com/peers/peer0.org3.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer0.org3.carmenw.com:11051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer0.org3.carmenw.com",
+				"hostnameOverride":"peer0.org3.carmenw.com",
+				"request-timeout":120001
+			}
+		},
+		"peer1.org3.carmenw.com": {
+			"tlsCACerts": {
+				"path": "/tmp/crypto/peerOrganizations/org3.carmenw.com/peers/peer1.org3.carmenw.com/tls/ca.crt"
+			},
+			"url": "grpcs://peer1.org3.carmenw.com:12051",
+			"grpcOption":{
+				"ssl-target-name-override":"peer1.org3.carmenw.com",
+				"hostnameOverride":"peer1.org3.carmenw.com",
+				"request-timeout":120001
+			}
+		}
+	}
+}
